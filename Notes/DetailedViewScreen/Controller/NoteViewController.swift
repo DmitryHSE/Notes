@@ -7,45 +7,25 @@
 
 import UIKit
 
-class NoteViewController: UIViewController {
+class NoteViewController:BaseViewController<NoteView> {
     
     private var dataModel = DataModel(header: "", textBody: "")
     var passDataModelDelegate: PassDataModelProtocol?
     
-    var myTextView: UITextView = {
-       let textView = UITextView()
-        textView.backgroundColor = .systemGray6
-        textView.layer.cornerRadius = 15
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.font = UIFont(name: "Avenir Next", size: 25)
-        return textView
-    }()
-    
-    var textBody: UITextView = {
-       let textView = UITextView()
-        textView.backgroundColor = .systemGray6
-        textView.layer.cornerRadius = 15
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.font = UIFont(name: "Avenir Next", size: 20)
-        return textView
-    }()
-    
     override func viewDidLoad() {
         title = "New note"
         super.viewDidLoad()
-        textBody.delegate = self
-        myTextView.delegate = self
+        mainView.textBodyView.delegate = self
+        mainView.headerView.delegate = self
         setupNavigationBar()
         setupViews()
-        setConstraintes()
         notifications()
         setupSaveButton()
     }
     
     private func setupViews() {
         view.backgroundColor = .white
-        view.addView(myTextView)
-        view.addView(textBody)
+
     }
     
     func notifications() {
@@ -64,23 +44,9 @@ class NoteViewController: UIViewController {
             // 3
             let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             print(keyboardRectangle.height)
-            textBody.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height).isActive = true
+            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height).isActive = true
            
         }
-    }
-    
-    private func setConstraintes() {
-        NSLayoutConstraint.activate([
-            myTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            myTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            myTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            myTextView.heightAnchor.constraint(equalToConstant: 45),
-            
-            textBody.topAnchor.constraint(equalTo: myTextView.bottomAnchor, constant: 10),
-            textBody.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            textBody.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            textBody.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
-        ])
     }
 }
 
@@ -92,7 +58,9 @@ extension NoteViewController {
     }
     
     @objc func saveAndDismiss(sender: UIBarButtonItem) {
-        passDataModelDelegate?.recieveDataModelFromEditScreen(datamodel: dataModel)
+        if dataModel.header != "" {
+            passDataModelDelegate?.recieveDataModelFromEditScreen(datamodel: dataModel)
+        }
         self.dismiss(animated: true)
     }
 }
@@ -100,11 +68,11 @@ extension NoteViewController {
 extension NoteViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView == myTextView {
+        if textView == mainView.headerView {
             dataModel.header = textView.text
             //print("myTextView")
         }
-        if textView == textBody {
+        if textView == mainView.textBodyView {
             dataModel.textBody = textView.text
             //print("textBody")
         }

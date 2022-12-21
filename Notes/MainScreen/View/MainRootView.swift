@@ -18,7 +18,6 @@ final class MainRootView: BaseView {
     
     override func configureUI() {
         addSubView()
-        
         NSLayoutConstraint.activate([
             notesTableView.topAnchor.constraint(equalTo: topAnchor),
             notesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -33,7 +32,6 @@ final class MainRootView: BaseView {
 
 
 private extension MainRootView {
-    
     func addSubView() {
         [notesTableView].forEach { addView($0) }
     }
