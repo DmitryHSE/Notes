@@ -18,8 +18,11 @@
 		9F578E362952FE3B00FC58C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E352952FE3B00FC58C7 /* BaseViewController.swift */; };
 		9F578E382952FE5700FC58C7 /* MainRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E372952FE5700FC58C7 /* MainRootView.swift */; };
 		9F578E3B2952FE7E00FC58C7 /* NotesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E3A2952FE7E00FC58C7 /* NotesTableView.swift */; };
-		9F578E3D2952FE8600FC58C7 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E3C2952FE8600FC58C7 /* NoteViewCell.swift */; };
 		9F578E402953002C00FC58C7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E3F2953002C00FC58C7 /* UIView.swift */; };
+		9F578E4329530A3400FC58C7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E4129530A3400FC58C7 /* TableViewCell.swift */; };
+		9F578E4429530A3400FC58C7 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F578E4229530A3400FC58C7 /* TableViewCell.xib */; };
+		9F578E4A2953303A00FC58C7 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E492953303A00FC58C7 /* NoteViewController.swift */; };
+		9F9B88C52953616A0044B950 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C42953616A0044B950 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +39,11 @@
 		9F578E352952FE3B00FC58C7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9F578E372952FE5700FC58C7 /* MainRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRootView.swift; sourceTree = "<group>"; };
 		9F578E3A2952FE7E00FC58C7 /* NotesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableView.swift; sourceTree = "<group>"; };
-		9F578E3C2952FE8600FC58C7 /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
 		9F578E3F2953002C00FC58C7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		9F578E4129530A3400FC58C7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		9F578E4229530A3400FC58C7 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		9F578E492953303A00FC58C7 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		9F9B88C42953616A0044B950 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,9 @@
 		9F578E312952FDBF00FC58C7 /* DetailedViewScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9F578E48295315C500FC58C7 /* Model */,
+				9F578E47295313C000FC58C7 /* View */,
+				9F578E46295313B100FC58C7 /* Controller */,
 			);
 			path = DetailedViewScreen;
 			sourceTree = "<group>";
@@ -139,6 +148,7 @@
 				9F578E332952FE1D00FC58C7 /* BaseView.swift */,
 				9F578E352952FE3B00FC58C7 /* BaseViewController.swift */,
 				9F578E3E2953002000FC58C7 /* Extensions */,
+				9F9B88C3295361550044B950 /* Protocols */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -147,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9F578E3A2952FE7E00FC58C7 /* NotesTableView.swift */,
-				9F578E3C2952FE8600FC58C7 /* NoteViewCell.swift */,
+				9F578E4529530F0200FC58C7 /* Cell */,
 			);
 			name = TableView;
 			path = View;
@@ -159,6 +169,45 @@
 				9F578E3F2953002C00FC58C7 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9F578E4529530F0200FC58C7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9F578E4129530A3400FC58C7 /* TableViewCell.swift */,
+				9F578E4229530A3400FC58C7 /* TableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9F578E46295313B100FC58C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9F578E492953303A00FC58C7 /* NoteViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9F578E47295313C000FC58C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9F578E48295315C500FC58C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9F9B88C3295361550044B950 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B88C42953616A0044B950 /* Protocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F578E232952FD1800FC58C7 /* LaunchScreen.storyboard in Resources */,
+				9F578E4429530A3400FC58C7 /* TableViewCell.xib in Resources */,
 				9F578E202952FD1800FC58C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,11 +285,13 @@
 				9F578E382952FE5700FC58C7 /* MainRootView.swift in Sources */,
 				9F578E402953002C00FC58C7 /* UIView.swift in Sources */,
 				9F578E182952FD1600FC58C7 /* ViewController.swift in Sources */,
+				9F578E4A2953303A00FC58C7 /* NoteViewController.swift in Sources */,
 				9F578E142952FD1600FC58C7 /* AppDelegate.swift in Sources */,
 				9F578E3B2952FE7E00FC58C7 /* NotesTableView.swift in Sources */,
-				9F578E3D2952FE8600FC58C7 /* NoteViewCell.swift in Sources */,
 				9F578E342952FE1D00FC58C7 /* BaseView.swift in Sources */,
 				9F578E162952FD1600FC58C7 /* SceneDelegate.swift in Sources */,
+				9F9B88C52953616A0044B950 /* Protocols.swift in Sources */,
+				9F578E4329530A3400FC58C7 /* TableViewCell.swift in Sources */,
 				9F578E362952FE3B00FC58C7 /* BaseViewController.swift in Sources */,
 				9F578E1E2952FD1600FC58C7 /* Notes.xcdatamodeld in Sources */,
 			);

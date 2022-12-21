@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct DataModel {
+    var header: String
+    var textBody: String
+}
