@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hader" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1p-hR-Lm7">
-                        <rect key="frame" x="7" y="7" width="306" height="21"/>
+                        <rect key="frame" x="20" y="7" width="280" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MM-Sx-6Mt">
-                        <rect key="frame" x="7" y="36" width="306" height="17"/>
+                        <rect key="frame" x="20" y="36" width="280" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,10 +31,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="0MM-Sx-6Mt" secondAttribute="bottom" constant="7" id="86a-Pd-Z8W"/>
-                    <constraint firstItem="0MM-Sx-6Mt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="Med-5Q-v8D"/>
-                    <constraint firstItem="o1p-hR-Lm7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="fVT-M7-zPM"/>
-                    <constraint firstAttribute="trailing" secondItem="o1p-hR-Lm7" secondAttribute="trailing" constant="7" id="fXK-Un-oDz"/>
-                    <constraint firstAttribute="trailing" secondItem="0MM-Sx-6Mt" secondAttribute="trailing" constant="7" id="ixZ-fm-UL2"/>
+                    <constraint firstItem="0MM-Sx-6Mt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Med-5Q-v8D"/>
+                    <constraint firstItem="o1p-hR-Lm7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fVT-M7-zPM"/>
+                    <constraint firstAttribute="trailing" secondItem="o1p-hR-Lm7" secondAttribute="trailing" constant="20" id="fXK-Un-oDz"/>
+                    <constraint firstAttribute="trailing" secondItem="0MM-Sx-6Mt" secondAttribute="trailing" constant="20" id="ixZ-fm-UL2"/>
                     <constraint firstItem="o1p-hR-Lm7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="xK5-4h-FeC"/>
                 </constraints>
             </tableViewCellContentView>

@@ -13,10 +13,7 @@ class NoteViewController:BaseViewController<NoteView> {
     var passDataModelDelegate: PassDataModelProtocol?
     
     override func viewDidLoad() {
-        title = "New note"
         super.viewDidLoad()
-        mainView.textBodyView.delegate = self
-        mainView.headerView.delegate = self
         setupNavigationBar()
         setupViews()
         notifications()
@@ -24,11 +21,15 @@ class NoteViewController:BaseViewController<NoteView> {
     }
     
     private func setupViews() {
+        title = "New note"
         view.backgroundColor = .white
+        mainView.textBodyView.delegate = self
+        mainView.headerView.delegate = self
+        
 
     }
     
-    func notifications() {
+    private func notifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handle(keyboardShowNotification:)),
                                                name: UIResponder.keyboardDidShowNotification,
@@ -58,14 +59,32 @@ extension NoteViewController {
     }
     
     @objc func saveAndDismiss(sender: UIBarButtonItem) {
-        if dataModel.header != "" {
+        if dataModel.header == "" {
+            self.emptyHeaderAlert()
+        } else {
             passDataModelDelegate?.recieveDataModelFromEditScreen(datamodel: dataModel)
+            self.dismiss(animated: true)
         }
-        self.dismiss(animated: true)
     }
 }
 
+//MARK: - UITextViewDelegate
+
 extension NoteViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .darkGray {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Type some here..."
+            textView.textColor = .darkGray
+        }
+    }
     
     func textViewDidChange(_ textView: UITextView) {
         if textView == mainView.headerView {
