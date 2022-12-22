@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController:BaseViewController<MainRootView>  {
     
-    private var dataModelsArray = [DataModel]()
+    private var dataModelsArray:[DataModel] = {
+        var array = [DataModel]()
+        array = StaticDataModel.DataModelArray
+        return array
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +83,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         vc.dataModelIndex = indexPath.row
         vc.mainView.textBodyView.isEditable = false
         vc.mainView.headerView.isEditable = false
-        //vc.passDataModelDelegate = self
-        vc.delegate = self
+        vc.updateEditedNotedelegate = self
         self.navigationController?.pushViewController(vc, animated: true)
-        print("Did selected")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { _, _, completion in
+            self.dataModelsArray.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

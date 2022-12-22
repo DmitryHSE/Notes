@@ -26,7 +26,7 @@ extension UIViewController {
         let title = "Save changes and quit?"
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let alertYes = UIAlertAction(title: "No, continue editing", style: .default)
-        let alertNo = UIAlertAction(title: "Yes", style: .cancel, handler: { action in
+        let alertNo = UIAlertAction(title: "Save and quit", style: .cancel, handler: { action in
             self.navigationController?.popViewController(animated: true)
         })
         alertController.addAction(alertYes)

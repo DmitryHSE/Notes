@@ -13,7 +13,7 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
     var dataModel = DataModel(header: "", textBody: "")
     var dataModelIndex: Int?
     private var editedDataModel = DataModel(header: "", textBody: "")
-    var delegate: UpdateEditedNoteProtocol?
+    var updateEditedNotedelegate: UpdateEditedNoteProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +91,7 @@ extension DetailedNoteViewController {
         if editedDataModel.header == "" {
             self.emptyHeaderAtExistingNoteAlert()
         } else if editedDataModel.header != dataModel.header || editedDataModel.textBody != dataModel.textBody  {
-            self.delegate?.recieveUpdatedNoteDataModel(datamodel: editedDataModel, index: dataModelIndex!)
+            self.updateEditedNotedelegate?.recieveUpdatedNoteDataModel(datamodel: editedDataModel, index: dataModelIndex!)
             self.noteWasEditedAlert()
         } else {
             self.dismiss(animated: true)
@@ -137,7 +137,7 @@ extension DetailedNoteViewController {
         navigationBarAppearance.configureWithDefaultBackground()
         navigationBarAppearance.backgroundColor = .white
         //title = "Edit note"
-        //navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance

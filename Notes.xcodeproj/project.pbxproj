@@ -27,6 +27,7 @@
 		9F9B88C9295380FD0044B950 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C8295380FD0044B950 /* UIViewController.swift */; };
 		9F9B88CC295419E50044B950 /* DetailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */; };
 		9F9B88CE295419F20044B950 /* DetailedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CD295419F20044B950 /* DetailedNoteView.swift */; };
+		9F9B88D029543B0F0044B950 /* StaticDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		9F9B88C8295380FD0044B950 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteViewController.swift; sourceTree = "<group>"; };
 		9F9B88CD295419F20044B950 /* DetailedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteView.swift; sourceTree = "<group>"; };
+		9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				9F578E3F2953002C00FC58C7 /* UIView.swift */,
 				9F9B88C8295380FD0044B950 /* UIViewController.swift */,
+				9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				9F578E402953002C00FC58C7 /* UIView.swift in Sources */,
 				9F578E182952FD1600FC58C7 /* ViewController.swift in Sources */,
 				9F578E4A2953303A00FC58C7 /* NewNoteViewController.swift in Sources */,
+				9F9B88D029543B0F0044B950 /* StaticDataModel.swift in Sources */,
 				9F578E142952FD1600FC58C7 /* AppDelegate.swift in Sources */,
 				9F578E3B2952FE7E00FC58C7 /* NotesTableView.swift in Sources */,
 				9F578E342952FE1D00FC58C7 /* BaseView.swift in Sources */,
