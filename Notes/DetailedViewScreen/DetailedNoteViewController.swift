@@ -1,16 +1,18 @@
 //
-//  NoteViewController.swift
+//  DetailedNoteViewController.swift
 //  Notes
 //
-//  Created by Dmitry on 21.12.2022.
+//  Created by Dmitry on 22.12.2022.
 //
+
 
 import UIKit
 
-class NoteViewController:BaseViewController<NoteView> {
+class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
     
-    private var dataModel = DataModel(header: "", textBody: "")
-    var passDataModelDelegate: PassDataModelProtocol?
+    var dataModel = DataModel(header: "", textBody: "")
+    private var editedDataModel = DataModel(header: "", textBody: "")
+    //var passDataModelDelegate: PassDataModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +20,29 @@ class NoteViewController:BaseViewController<NoteView> {
         setupViews()
         notifications()
         setupSaveButton()
+        setupBackButton()
+        setupNoteViews()
     }
     
     private func setupViews() {
-        title = "New note"
+        editedDataModel = dataModel
+        title = dataModel.header
         view.backgroundColor = .white
         mainView.textBodyView.delegate = self
         mainView.headerView.delegate = self
         
 
+    }
+    
+    private func setupNoteViews() {
+        if dataModel.header != "" {
+            mainView.textBodyView.text = dataModel.textBody
+            mainView.headerView.text = dataModel.header
+            mainView.headerView.isEditable = false
+            mainView.textBodyView.isEditable = false
+//            mainView.textBodyView.textColor = .black
+//            mainView.headerView.textColor = .black
+        }
     }
     
     private func notifications() {
@@ -51,26 +67,42 @@ class NoteViewController:BaseViewController<NoteView> {
     }
 }
 
-extension NoteViewController {
+extension DetailedNoteViewController {
     private func setupSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                             target: self,
-                                                            action: #selector(saveAndDismiss(sender:)))
+                                                            action: #selector(editNote(sender:)))
+
     }
     
+    @objc func editNote(sender: UIBarButtonItem) {
+
+        mainView.headerView.isEditable = true
+        mainView.textBodyView.isEditable = true
+        
+    }
+    
+    private func setupBackButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(saveAndDismiss(sender:)))
+    }
     @objc func saveAndDismiss(sender: UIBarButtonItem) {
-        if dataModel.header == "" {
-            self.emptyHeaderAlert()
+        print("pushed back")
+        if editedDataModel.header == "" {
+            self.emptyHeaderAtExistingNoteAlert()
+        } else if editedDataModel.header != dataModel.header || editedDataModel.textBody != dataModel.textBody  {
+            // тут дедегат
+            self.noteWasEditedAlert()
         } else {
-            passDataModelDelegate?.recieveDataModelFromEditScreen(datamodel: dataModel)
             self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
+    
 }
 
 //MARK: - UITextViewDelegate
 
-extension NoteViewController: UITextViewDelegate {
+extension DetailedNoteViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .darkGray {
@@ -88,22 +120,22 @@ extension NoteViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if textView == mainView.headerView {
-            dataModel.header = textView.text
+            editedDataModel.header = textView.text
             //print("myTextView")
         }
         if textView == mainView.textBodyView {
-            dataModel.textBody = textView.text
+            editedDataModel.textBody = textView.text
             //print("textBody")
         }
     }
 }
 
-extension NoteViewController {
+extension DetailedNoteViewController {
     private func setupNavigationBar() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()
         navigationBarAppearance.backgroundColor = .white
-        title = "Edit note"
+        //title = "Edit note"
         //navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance

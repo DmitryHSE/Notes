@@ -51,10 +51,9 @@ extension ViewController {
     }
     
     @objc func performAdd(sender: UIBarButtonItem) {
-        let vc = NoteViewController()
+        let vc = NewNoteViewController()
         vc.passDataModelDelegate = self
         let navController = UINavigationController(rootViewController: vc)
-        //self.navigationController!.pushViewController(vc, animated: true)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
         print("Add new note")
@@ -75,6 +74,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailedNoteViewController()
+        vc.dataModel = dataModelsArray[indexPath.row]
+        vc.mainView.textBodyView.isEditable = false
+        vc.mainView.headerView.isEditable = false
+        //vc.passDataModelDelegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
         print("Did selected")
     }
     

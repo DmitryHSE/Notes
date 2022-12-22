@@ -1,13 +1,13 @@
 //
-//  NoteView.swift
+//  DetailedNoteView.swift
 //  Notes
 //
-//  Created by Dmitry on 21.12.2022.
+//  Created by Dmitry on 22.12.2022.
 //
 
 import UIKit
 
-final class NoteView: BaseView {
+final class DetailedNoteView: BaseView {
     
     var headerView: UITextView = {
        let textView = UITextView()
@@ -15,8 +15,9 @@ final class NoteView: BaseView {
         textView.layer.cornerRadius = 15
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.font = UIFont(name: "Avenir Next", size: 25)
-        textView.text = "Type some text here..."
-        textView.textColor = .darkGray
+//        textView.text = "Type some text here..."
+//        textView.textColor = .darkGray
+        textView.isScrollEnabled = false
         return textView
     }()
     
@@ -26,8 +27,8 @@ final class NoteView: BaseView {
         textView.layer.cornerRadius = 15
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.font = UIFont(name: "Avenir Next", size: 20)
-        textView.text = "Type some text here..."
-        textView.textColor = .darkGray
+//        textView.text = "Type some text here..."
+//        textView.textColor = .darkGray
         return textView
     }()
     
@@ -37,7 +38,7 @@ final class NoteView: BaseView {
     }
 }
 
-extension NoteView {
+extension DetailedNoteView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
@@ -54,7 +55,7 @@ extension NoteView {
     }
 }
 
-private extension NoteView {
+private extension DetailedNoteView {
     func addSubView() {
         [headerView, textBodyView].forEach { addView($0) }
     }

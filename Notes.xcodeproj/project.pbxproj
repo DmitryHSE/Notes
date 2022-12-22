@@ -21,10 +21,12 @@
 		9F578E402953002C00FC58C7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E3F2953002C00FC58C7 /* UIView.swift */; };
 		9F578E4329530A3400FC58C7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E4129530A3400FC58C7 /* TableViewCell.swift */; };
 		9F578E4429530A3400FC58C7 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F578E4229530A3400FC58C7 /* TableViewCell.xib */; };
-		9F578E4A2953303A00FC58C7 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E492953303A00FC58C7 /* NoteViewController.swift */; };
+		9F578E4A2953303A00FC58C7 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F578E492953303A00FC58C7 /* NewNoteViewController.swift */; };
 		9F9B88C52953616A0044B950 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C42953616A0044B950 /* Protocols.swift */; };
-		9F9B88C7295377C80044B950 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C6295377C80044B950 /* NoteView.swift */; };
+		9F9B88C7295377C80044B950 /* NewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C6295377C80044B950 /* NewNoteView.swift */; };
 		9F9B88C9295380FD0044B950 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88C8295380FD0044B950 /* UIViewController.swift */; };
+		9F9B88CC295419E50044B950 /* DetailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */; };
+		9F9B88CE295419F20044B950 /* DetailedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CD295419F20044B950 /* DetailedNoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +46,12 @@
 		9F578E3F2953002C00FC58C7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9F578E4129530A3400FC58C7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9F578E4229530A3400FC58C7 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		9F578E492953303A00FC58C7 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		9F578E492953303A00FC58C7 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		9F9B88C42953616A0044B950 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		9F9B88C6295377C80044B950 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		9F9B88C6295377C80044B950 /* NewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteView.swift; sourceTree = "<group>"; };
 		9F9B88C8295380FD0044B950 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteViewController.swift; sourceTree = "<group>"; };
+		9F9B88CD295419F20044B950 /* DetailedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,8 @@
 			children = (
 				9F578E2A2952FD7200FC58C7 /* Application */,
 				9F578E2B2952FD8200FC58C7 /* MainScreen */,
-				9F578E312952FDBF00FC58C7 /* DetailedViewScreen */,
+				9F578E312952FDBF00FC58C7 /* NewNoteViewScreen */,
+				9F9B88CA295419CC0044B950 /* DetailedViewScreen */,
 				9F578E322952FDF200FC58C7 /* SupportingFiles */,
 				9F578E1F2952FD1800FC58C7 /* Assets.xcassets */,
 				9F578E212952FD1800FC58C7 /* LaunchScreen.storyboard */,
@@ -136,14 +141,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9F578E312952FDBF00FC58C7 /* DetailedViewScreen */ = {
+		9F578E312952FDBF00FC58C7 /* NewNoteViewScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9F578E48295315C500FC58C7 /* Model */,
 				9F578E47295313C000FC58C7 /* View */,
 				9F578E46295313B100FC58C7 /* Controller */,
 			);
-			path = DetailedViewScreen;
+			path = NewNoteViewScreen;
 			sourceTree = "<group>";
 		};
 		9F578E322952FDF200FC58C7 /* SupportingFiles */ = {
@@ -188,7 +193,7 @@
 		9F578E46295313B100FC58C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9F578E492953303A00FC58C7 /* NoteViewController.swift */,
+				9F578E492953303A00FC58C7 /* NewNoteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,7 +201,7 @@
 		9F578E47295313C000FC58C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9F9B88C6295377C80044B950 /* NoteView.swift */,
+				9F9B88C6295377C80044B950 /* NewNoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +219,15 @@
 				9F9B88C42953616A0044B950 /* Protocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9F9B88CA295419CC0044B950 /* DetailedViewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */,
+				9F9B88CD295419F20044B950 /* DetailedNoteView.swift */,
+			);
+			path = DetailedViewScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,15 +305,17 @@
 				9F578E382952FE5700FC58C7 /* MainRootView.swift in Sources */,
 				9F578E402953002C00FC58C7 /* UIView.swift in Sources */,
 				9F578E182952FD1600FC58C7 /* ViewController.swift in Sources */,
-				9F578E4A2953303A00FC58C7 /* NoteViewController.swift in Sources */,
+				9F578E4A2953303A00FC58C7 /* NewNoteViewController.swift in Sources */,
 				9F578E142952FD1600FC58C7 /* AppDelegate.swift in Sources */,
 				9F578E3B2952FE7E00FC58C7 /* NotesTableView.swift in Sources */,
 				9F578E342952FE1D00FC58C7 /* BaseView.swift in Sources */,
+				9F9B88CC295419E50044B950 /* DetailedNoteViewController.swift in Sources */,
 				9F578E162952FD1600FC58C7 /* SceneDelegate.swift in Sources */,
 				9F9B88C52953616A0044B950 /* Protocols.swift in Sources */,
 				9F578E4329530A3400FC58C7 /* TableViewCell.swift in Sources */,
+				9F9B88CE295419F20044B950 /* DetailedNoteView.swift in Sources */,
 				9F578E362952FE3B00FC58C7 /* BaseViewController.swift in Sources */,
-				9F9B88C7295377C80044B950 /* NoteView.swift in Sources */,
+				9F9B88C7295377C80044B950 /* NewNoteView.swift in Sources */,
 				9F578E1E2952FD1600FC58C7 /* Notes.xcdatamodeld in Sources */,
 				9F9B88C9295380FD0044B950 /* UIViewController.swift in Sources */,
 			);
