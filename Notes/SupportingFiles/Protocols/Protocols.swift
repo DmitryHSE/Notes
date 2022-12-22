@@ -10,3 +10,7 @@ import Foundation
 protocol PassDataModelProtocol {
     func recieveDataModelFromEditScreen(datamodel:DataModel)
 }
+
+protocol UpdateEditedNoteProtocol {
+    func recieveUpdatedNoteDataModel(datamodel: DataModel, index: Int)
+}

@@ -76,9 +76,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailedNoteViewController()
         vc.dataModel = dataModelsArray[indexPath.row]
+        vc.dataModelIndex = indexPath.row
         vc.mainView.textBodyView.isEditable = false
         vc.mainView.headerView.isEditable = false
         //vc.passDataModelDelegate = self
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
         print("Did selected")
     }
@@ -88,7 +90,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ViewController: PassDataModelProtocol {
+extension ViewController: PassDataModelProtocol, UpdateEditedNoteProtocol {
+    
+    func recieveUpdatedNoteDataModel(datamodel: DataModel, index: Int) {
+        dataModelsArray[index] = datamodel
+        mainView.notesTableView.reloadData()
+    }
+    
     
     func recieveDataModelFromEditScreen(datamodel: DataModel) {
         dataModelsArray.append(datamodel)
@@ -97,3 +105,4 @@ extension ViewController: PassDataModelProtocol {
     
     
 }
+

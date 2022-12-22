@@ -11,8 +11,9 @@ import UIKit
 class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
     
     var dataModel = DataModel(header: "", textBody: "")
+    var dataModelIndex: Int?
     private var editedDataModel = DataModel(header: "", textBody: "")
-    //var passDataModelDelegate: PassDataModelProtocol?
+    var delegate: UpdateEditedNoteProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +91,7 @@ extension DetailedNoteViewController {
         if editedDataModel.header == "" {
             self.emptyHeaderAtExistingNoteAlert()
         } else if editedDataModel.header != dataModel.header || editedDataModel.textBody != dataModel.textBody  {
-            // тут дедегат
+            self.delegate?.recieveUpdatedNoteDataModel(datamodel: editedDataModel, index: dataModelIndex!)
             self.noteWasEditedAlert()
         } else {
             self.dismiss(animated: true)
