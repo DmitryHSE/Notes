@@ -70,7 +70,7 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
 
 extension DetailedNoteViewController {
     private func setupSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
                                                             target: self,
                                                             action: #selector(editNote(sender:)))
 
@@ -84,7 +84,7 @@ extension DetailedNoteViewController {
     }
     
     private func setupBackButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(saveAndDismiss(sender:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(saveAndDismiss(sender:)))
     }
     @objc func saveAndDismiss(sender: UIBarButtonItem) {
         print("pushed back")

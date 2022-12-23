@@ -28,6 +28,7 @@
 		9F9B88CC295419E50044B950 /* DetailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */; };
 		9F9B88CE295419F20044B950 /* DetailedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CD295419F20044B950 /* DetailedNoteView.swift */; };
 		9F9B88D029543B0F0044B950 /* StaticDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */; };
+		9F9B890429560B0F0044B950 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B890329560B0F0044B950 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		9F9B88CB295419E50044B950 /* DetailedNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteViewController.swift; sourceTree = "<group>"; };
 		9F9B88CD295419F20044B950 /* DetailedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedNoteView.swift; sourceTree = "<group>"; };
 		9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDataModel.swift; sourceTree = "<group>"; };
+		9F9B890329560B0F0044B950 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				9F578E2B2952FD8200FC58C7 /* MainScreen */,
 				9F578E312952FDBF00FC58C7 /* NewNoteViewScreen */,
 				9F9B88CA295419CC0044B950 /* DetailedViewScreen */,
+				9F9B890129560AEE0044B950 /* Services */,
 				9F578E322952FDF200FC58C7 /* SupportingFiles */,
 				9F9B88D129543D9B0044B950 /* Other */,
 				9F578E1F2952FD1800FC58C7 /* Assets.xcassets */,
@@ -257,6 +260,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9F9B890129560AEE0044B950 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B890229560AF90044B950 /* DataStorage */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9F9B890229560AF90044B950 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B890329560B0F0044B950 /* CoreDataManager.swift */,
+			);
+			path = DataStorage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +350,7 @@
 				9F578E302952FDB000FC58C7 /* DataModel.swift in Sources */,
 				9F578E382952FE5700FC58C7 /* MainRootView.swift in Sources */,
 				9F578E402953002C00FC58C7 /* UIView.swift in Sources */,
+				9F9B890429560B0F0044B950 /* CoreDataManager.swift in Sources */,
 				9F578E182952FD1600FC58C7 /* ViewController.swift in Sources */,
 				9F578E4A2953303A00FC58C7 /* NewNoteViewController.swift in Sources */,
 				9F9B88D029543B0F0044B950 /* StaticDataModel.swift in Sources */,

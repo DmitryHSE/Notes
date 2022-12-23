@@ -6,20 +6,19 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController:BaseViewController<MainRootView>  {
     
-    private var dataModelsArray:[DataModel] = {
-        var array = [DataModel]()
-        array = StaticDataModel.DataModelArray
-        return array
-    }()
+    private var dataManager = DataManager()
+    private var dataModelsArray = [DataModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupAddButton()
         setupNavigationBar()
+        loadDataFromCoreData()
     }
 }
 
@@ -95,6 +94,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { _, _, completion in
             self.dataModelsArray.remove(at: indexPath.row)
+            self.updateDataAtCoreData(models: self.dataModelsArray)
             tableView.reloadData()
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -105,15 +105,38 @@ extension ViewController: PassDataModelProtocol, UpdateEditedNoteProtocol {
     
     func recieveUpdatedNoteDataModel(datamodel: DataModel, index: Int) {
         dataModelsArray[index] = datamodel
+        updateDataAtCoreData(models: dataModelsArray)
         mainView.notesTableView.reloadData()
     }
     
     
     func recieveDataModelFromEditScreen(datamodel: DataModel) {
         dataModelsArray.append(datamodel)
+        updateDataAtCoreData(models: dataModelsArray)
         mainView.notesTableView.reloadData()
     }
     
     
 }
 
+extension ViewController {
+    
+    private func loadDataFromCoreData() {
+        let data = dataManager.readSavedData()
+        if data.count > 0 {
+            dataModelsArray = data
+        } else {
+            dataModelsArray = StaticDataModel.DataModelArray
+            for i in dataModelsArray {
+                dataManager.saveData(h: i.header, t: i.textBody)
+            }
+        }
+    }
+    
+    private func updateDataAtCoreData(models:[DataModel]) {
+        dataManager.deleteAllData()
+        for i in models {
+            dataManager.saveData(h: i.header, t: i.textBody)
+        }
+    }
+}
