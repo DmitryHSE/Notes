@@ -15,7 +15,7 @@ final class NewNoteView: BaseView {
         textView.layer.cornerRadius = 15
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.font = UIFont(name: "Avenir Next", size: 25)
-        textView.text = "Type some text here..."
+        textView.text = "Type header here..."
         textView.textColor = .darkGray
         textView.isScrollEnabled = false
         return textView
@@ -27,7 +27,7 @@ final class NewNoteView: BaseView {
         textView.layer.cornerRadius = 15
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.font = UIFont(name: "Avenir Next", size: 20)
-        textView.text = "Type some text here..."
+        textView.text = "Type your note here..."
         textView.textColor = .darkGray
         return textView
     }()

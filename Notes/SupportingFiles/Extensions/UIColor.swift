@@ -44,5 +44,9 @@ extension UIColor {
 enum Colors {
     static let softBlue = UIColor(hex: "#dcf0f5") ?? .systemGray2
     static let softPink = UIColor(hex: "#f1dcf5") ?? .systemGray2
+    static let lightYellow = UIColor(hex: "#f2fcc7") ?? .systemGray2
+    static let lightGreen = UIColor(hex: "#d7f7b7") ?? .systemGray2
+    static let lightBlue = UIColor(hex: "#edfffb") ?? .systemGray2 
+    static let gray = UIColor(hex: "#f0f0f0") ?? .systemGray2
 }
 

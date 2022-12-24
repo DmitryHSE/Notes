@@ -41,8 +41,6 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
             mainView.headerView.text = dataModel.header
             mainView.headerView.isEditable = false
             mainView.textBodyView.isEditable = false
-//            mainView.textBodyView.textColor = .black
-//            mainView.headerView.textColor = .black
         }
     }
     
@@ -54,15 +52,10 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
     }
     
     @objc private func handle(keyboardShowNotification notification: Notification) {
-        // 1
-        print("Keyboard show notification")
-        
-        // 2
         if let userInfo = notification.userInfo,
-            // 3
             let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            print(keyboardRectangle.height)
-            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height).isActive = true
+            
+            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
            
         }
     }
@@ -70,9 +63,11 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
 
 extension DetailedNoteViewController {
     private func setupSaveButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(editNote(sender:)))
+        let button = UIBarButtonItem(barButtonSystemItem: .edit,
+                                     target: self,
+                                     action: #selector(editNote(sender:)))
+        button.tintColor = .black
+        navigationItem.leftBarButtonItem = button
 
     }
     
@@ -82,6 +77,7 @@ extension DetailedNoteViewController {
         mainView.textBodyView.isEditable = true
         mainView.headerView.backgroundColor = Colors.softPink
         mainView.textBodyView.backgroundColor = Colors.softPink
+        title = "Edit note"
         
     }
     
@@ -89,7 +85,6 @@ extension DetailedNoteViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(saveAndDismiss(sender:)))
     }
     @objc func saveAndDismiss(sender: UIBarButtonItem) {
-        print("pushed back")
         if editedDataModel.header == "" {
             self.emptyHeaderAtExistingNoteAlert()
         } else if editedDataModel.header != dataModel.header || editedDataModel.textBody != dataModel.textBody  {
@@ -124,11 +119,9 @@ extension DetailedNoteViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView == mainView.headerView {
             editedDataModel.header = textView.text
-            //print("myTextView")
         }
         if textView == mainView.textBodyView {
             editedDataModel.textBody = textView.text
-            //print("textBody")
         }
     }
 }
@@ -137,9 +130,7 @@ extension DetailedNoteViewController {
     private func setupNavigationBar() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()
-        navigationBarAppearance.backgroundColor = .white
-        //title = "Edit note"
-        //navigationController?.navigationBar.prefersLargeTitles = false
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bradley Hand", size: 28)!]
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance

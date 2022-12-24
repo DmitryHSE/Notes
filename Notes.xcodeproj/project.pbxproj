@@ -94,9 +94,7 @@
 				9F578E2B2952FD8200FC58C7 /* MainScreen */,
 				9F578E312952FDBF00FC58C7 /* NewNoteViewScreen */,
 				9F9B88CA295419CC0044B950 /* DetailedViewScreen */,
-				9F9B890129560AEE0044B950 /* Services */,
 				9F578E322952FDF200FC58C7 /* SupportingFiles */,
-				9F9B88D129543D9B0044B950 /* Other */,
 				9F578E1F2952FD1800FC58C7 /* Assets.xcassets */,
 				9F578E212952FD1800FC58C7 /* LaunchScreen.storyboard */,
 				9F578E242952FD1800FC58C7 /* Info.plist */,
@@ -162,10 +160,11 @@
 		9F578E322952FDF200FC58C7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				9F578E332952FE1D00FC58C7 /* BaseView.swift */,
-				9F578E352952FE3B00FC58C7 /* BaseViewController.swift */,
+				9F9B890129560AEE0044B950 /* Services */,
+				9F9B89072956DF1A0044B950 /* BaseViews */,
 				9F578E3E2953002000FC58C7 /* Extensions */,
 				9F9B88C3295361550044B950 /* Protocols */,
+				9F9B88D129543D9B0044B950 /* Other */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -277,6 +276,15 @@
 				9F9B890329560B0F0044B950 /* CoreDataManager.swift */,
 			);
 			path = DataStorage;
+			sourceTree = "<group>";
+		};
+		9F9B89072956DF1A0044B950 /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F578E332952FE1D00FC58C7 /* BaseView.swift */,
+				9F578E352952FE3B00FC58C7 /* BaseViewController.swift */,
+			);
+			path = BaseViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

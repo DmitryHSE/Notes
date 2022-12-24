@@ -27,7 +27,5 @@ private extension NotesTableView {
     
     func configureAppearance() {
         backgroundColor = .none
-        //separatorStyle = .none
-        //showsVerticalScrollIndicator = false
     }
 }

@@ -27,7 +27,6 @@ class ViewController:BaseViewController<MainRootView>  {
 extension ViewController {
     
     private func setupTableView() {
-        //mainView.notesTableView.separatorColor = .clear
         mainView.notesTableView.delegate = self
         mainView.notesTableView.dataSource = self
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
@@ -38,9 +37,8 @@ extension ViewController {
     private func setupNavigationBar() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()
-        //navigationBarAppearance.backgroundColor = .systemMint
-        title = "Notes"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bradley Hand", size: 32)!]
+        title = "My notes"
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
@@ -52,9 +50,11 @@ extension ViewController {
 extension ViewController {
     
     private func setupAddButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self,
-                                                            action: #selector(performAdd(sender:)))
+        let button = UIBarButtonItem(barButtonSystemItem: .add,
+                                     target: self,
+                                     action: #selector(performAdd(sender:)))
+        button.tintColor = .black
+        navigationItem.rightBarButtonItem = button
     }
     
     @objc func performAdd(sender: UIBarButtonItem) {
@@ -63,9 +63,7 @@ extension ViewController {
         let navController = UINavigationController(rootViewController: vc)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
-        print("Add new note")
     }
-    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -94,7 +92,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 75
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

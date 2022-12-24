@@ -47,15 +47,10 @@ class NewNoteViewController:BaseViewController<NewNoteView> {
     }
     
     @objc private func handle(keyboardShowNotification notification: Notification) {
-        // 1
-        print("Keyboard show notification")
-        
-        // 2
         if let userInfo = notification.userInfo,
-            // 3
             let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            print(keyboardRectangle.height)
-            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height).isActive = true
+            
+            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
            
         }
     }
@@ -63,9 +58,11 @@ class NewNoteViewController:BaseViewController<NewNoteView> {
 
 extension NewNoteViewController {
     private func setupSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, 
-                                                            target: self,
-                                                            action: #selector(saveAndDismiss(sender:)))
+        let button = UIBarButtonItem(barButtonSystemItem: .save,
+                                     target: self,
+                                     action: #selector(saveAndDismiss(sender:)))
+        button.tintColor = .black
+        navigationItem.rightBarButtonItem = button
 
     }
     
@@ -102,11 +99,9 @@ extension NewNoteViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView == mainView.headerView {
             dataModel.header = textView.text
-            //print("myTextView")
         }
         if textView == mainView.textBodyView {
             dataModel.textBody = textView.text
-            //print("textBody")
         }
     }
 }
@@ -115,9 +110,9 @@ extension NewNoteViewController {
     private func setupNavigationBar() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()
-        navigationBarAppearance.backgroundColor = .white
+        navigationBarAppearance.backgroundColor = Colors.gray
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bradley Hand", size: 28)!]
         title = "Edit note"
-        //navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
