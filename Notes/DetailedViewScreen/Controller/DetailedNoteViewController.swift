@@ -80,8 +80,8 @@ extension DetailedNoteViewController {
 
         mainView.headerView.isEditable = true
         mainView.textBodyView.isEditable = true
-        mainView.headerView.backgroundColor = .systemPink
-        mainView.textBodyView.backgroundColor = .systemPink
+        mainView.headerView.backgroundColor = Colors.softPink
+        mainView.textBodyView.backgroundColor = Colors.softPink
         
     }
     

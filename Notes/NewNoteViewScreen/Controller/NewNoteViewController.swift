@@ -26,11 +26,11 @@ class NewNoteViewController:BaseViewController<NewNoteView> {
         view.backgroundColor = .white
         mainView.textBodyView.delegate = self
         mainView.headerView.delegate = self
-        
-
     }
     
     private func setupNoteViews() {
+        mainView.textBodyView.backgroundColor = Colors.softBlue
+        mainView.headerView.backgroundColor = Colors.softBlue
         if dataModel.header != "" {
             mainView.textBodyView.text = dataModel.textBody
             mainView.headerView.text = dataModel.header

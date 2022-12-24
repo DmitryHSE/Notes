@@ -22,6 +22,8 @@ class ViewController:BaseViewController<MainRootView>  {
     }
 }
 
+// MARK: - Setup UI elements
+
 extension ViewController {
     
     private func setupTableView() {
@@ -45,6 +47,8 @@ extension ViewController {
     }
 }
 
+// MARK: Add new note button settings
+
 extension ViewController {
     
     private func setupAddButton() {
@@ -63,6 +67,8 @@ extension ViewController {
     }
     
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -101,6 +107,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Receive data protocols
+
 extension ViewController: PassDataModelProtocol, UpdateEditedNoteProtocol {
     
     func recieveUpdatedNoteDataModel(datamodel: DataModel, index: Int) {
@@ -115,9 +123,9 @@ extension ViewController: PassDataModelProtocol, UpdateEditedNoteProtocol {
         updateDataAtCoreData(models: dataModelsArray)
         mainView.notesTableView.reloadData()
     }
-    
-    
 }
+
+// MARK: - Core data methods
 
 extension ViewController {
     

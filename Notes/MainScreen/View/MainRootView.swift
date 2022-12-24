@@ -30,7 +30,6 @@ final class MainRootView: BaseView {
 }
 
 
-
 private extension MainRootView {
     func addSubView() {
         [notesTableView].forEach { addView($0) }

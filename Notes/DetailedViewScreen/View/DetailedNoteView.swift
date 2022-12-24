@@ -38,6 +38,8 @@ final class DetailedNoteView: BaseView {
     }
 }
 
+// MARK: - Constraints
+
 extension DetailedNoteView {
     
     private func setConstraints() {
