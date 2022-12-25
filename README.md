@@ -26,10 +26,10 @@
                 <img width="250" src="Resources/MainScreen.gif">
             </td>
             <td>
-                <img width="250" src="Resources/NewNote.gif">
+                <img width="250" src="Resources/NewNote2.gif">
             </td>
                         <td>
-                <img width="250" src="Resources/EditNote.gif">
+                <img width="250" src="Resources/EditNote2.gif">
             </td>
         </tr>
     </tbody>
