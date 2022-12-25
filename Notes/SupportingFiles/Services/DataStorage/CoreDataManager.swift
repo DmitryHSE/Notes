@@ -36,7 +36,6 @@ final class DataManager {
         } catch {
             print(error)
         }
-        //print("Data read succesfully")
         return array
     }
     
@@ -47,7 +46,6 @@ final class DataManager {
         managedObject?.setValue(h, forKey: constants.header.rawValue)
         managedObject?.setValue(t, forKey: constants.textBody.rawValue)
         appDelegate.saveContext()
-        //print("Saved succesfully")
     }
     
     func deleteAllData() {
@@ -63,7 +61,6 @@ final class DataManager {
             print(error)
         }
         appDelegate.saveContext()
-        //print("All deleted succesfully")
     }
     
 }

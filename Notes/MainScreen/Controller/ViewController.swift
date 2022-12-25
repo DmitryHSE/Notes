@@ -45,7 +45,7 @@ extension ViewController {
     }
 }
 
-// MARK: Add new note button settings
+// MARK: button settings
 
 extension ViewController {
     

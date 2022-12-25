@@ -106,6 +106,8 @@ extension NewNoteViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - Setup navigation bar
+
 extension NewNoteViewController {
     private func setupNavigationBar() {
         let navigationBarAppearance = UINavigationBarAppearance()

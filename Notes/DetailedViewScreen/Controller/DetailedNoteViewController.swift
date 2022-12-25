@@ -24,6 +24,32 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
         setupBackButton()
         setupNoteViews()
     }
+}
+
+// MARK: - Handle keyboard
+
+extension DetailedNoteViewController {
+    
+    private func notifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handle(keyboardShowNotification:)),
+                                               name: UIResponder.keyboardDidShowNotification,
+                                               object: nil)
+    }
+    
+    @objc private func handle(keyboardShowNotification notification: Notification) {
+        if let userInfo = notification.userInfo,
+            let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            
+            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
+           
+        }
+    }
+}
+
+// MARK: - setup UI elements
+
+extension DetailedNoteViewController {
     
     private func setupViews() {
         editedDataModel = dataModel
@@ -43,23 +69,9 @@ class DetailedNoteViewController:BaseViewController<DetailedNoteView> {
             mainView.textBodyView.isEditable = false
         }
     }
-    
-    private func notifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handle(keyboardShowNotification:)),
-                                               name: UIResponder.keyboardDidShowNotification,
-                                               object: nil)
-    }
-    
-    @objc private func handle(keyboardShowNotification notification: Notification) {
-        if let userInfo = notification.userInfo,
-            let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            
-            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
-           
-        }
-    }
 }
+
+// MARK: - Buttons settings
 
 extension DetailedNoteViewController {
     private func setupSaveButton() {
@@ -125,6 +137,8 @@ extension DetailedNoteViewController: UITextViewDelegate {
         }
     }
 }
+
+// MARK: - Setup navigation bar
 
 extension DetailedNoteViewController {
     private func setupNavigationBar() {
