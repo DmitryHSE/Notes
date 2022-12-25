@@ -41,7 +41,7 @@ extension DetailedNoteViewController {
         if let userInfo = notification.userInfo,
             let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             
-            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
+            mainView.textBodyView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -keyboardRectangle.height - 10).isActive = true
            
         }
     }
