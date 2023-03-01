@@ -12,3 +12,9 @@ extension String {
         return name.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
     }
 }
+
+extension String {
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
+}
