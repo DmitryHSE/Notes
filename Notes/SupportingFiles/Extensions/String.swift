@@ -5,8 +5,16 @@
 //  Created by Dmitry on 01.03.2023.
 //
 
-import Foundation
+import UIKit
 
 extension String {
-    
+    func getInitials(name: String) -> String {
+        return name.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
+    }
+}
+
+extension String {
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
 }
