@@ -30,6 +30,7 @@
 		9F9B88D029543B0F0044B950 /* StaticDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */; };
 		9F9B890429560B0F0044B950 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B890329560B0F0044B950 /* CoreDataManager.swift */; };
 		9F9B89062956DD4C0044B950 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9B89052956DD4C0044B950 /* UIColor.swift */; };
+		9FDA544829AF142A006430BE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA544729AF142A006430BE /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		9F9B88CF29543B0F0044B950 /* StaticDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDataModel.swift; sourceTree = "<group>"; };
 		9F9B890329560B0F0044B950 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9F9B89052956DD4C0044B950 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9FDA544729AF142A006430BE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				9F578E3F2953002C00FC58C7 /* UIView.swift */,
 				9F9B88C8295380FD0044B950 /* UIViewController.swift */,
 				9F9B89052956DD4C0044B950 /* UIColor.swift */,
+				9FDA544729AF142A006430BE /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				9F9B88CE295419F20044B950 /* DetailedNoteView.swift in Sources */,
 				9F578E362952FE3B00FC58C7 /* BaseViewController.swift in Sources */,
 				9F9B88C7295377C80044B950 /* NewNoteView.swift in Sources */,
+				9FDA544829AF142A006430BE /* String.swift in Sources */,
 				9F578E1E2952FD1600FC58C7 /* Notes.xcdatamodeld in Sources */,
 				9F9B88C9295380FD0044B950 /* UIViewController.swift in Sources */,
 			);
